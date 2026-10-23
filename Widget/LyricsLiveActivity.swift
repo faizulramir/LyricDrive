@@ -112,19 +112,13 @@ private struct CarPlayView: View {
 private struct ExpandedIslandView: View {
     let state: LyricsActivityAttributes.ContentState
 
+    // The expanded island is short: a two-line lyric, the hairline and the
+    // next line fill it, so the song name (already on the Lock Screen) stays out.
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            HStack(spacing: 10) {
-                ArtworkMark(size: 26)
-                Text(state.header)
-                    .font(.footnote)
-                    .foregroundStyle(Palette.dim)
-                    .lineLimit(1)
-            }
-            LinePair(state: state, mainSize: 20, nextSize: 15, barHeight: 2)
-        }
-        .padding(.horizontal, 8)
-        .padding(.bottom, 6)
+        LinePair(state: state, mainSize: 20, nextSize: 15, barHeight: 2, mainLineLimit: 2, nextLineLimit: 1)
+            .padding(.horizontal, 8)
+            .padding(.top, 4)
+            .padding(.bottom, 6)
     }
 }
 
@@ -137,13 +131,15 @@ private struct LinePair: View {
     let mainSize: CGFloat
     let nextSize: CGFloat
     let barHeight: CGFloat
+    var mainLineLimit = 3
+    var nextLineLimit = 2
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(state.mainLine)
                 .font(.lyric(mainSize, weight: .medium))
                 .foregroundStyle(Palette.text)
-                .lineLimit(3)
+                .lineLimit(mainLineLimit)
                 // Live Activities lay text out on one line unless allowed to
                 // grow; a long lyric should wrap, not end in "...".
                 .fixedSize(horizontal: false, vertical: true)
@@ -164,7 +160,7 @@ private struct LinePair: View {
                 Text(next)
                     .font(.lyric(nextSize))
                     .foregroundStyle(Palette.dim)
-                    .lineLimit(2)
+                    .lineLimit(nextLineLimit)
                     .fixedSize(horizontal: false, vertical: true)
             }
         }
