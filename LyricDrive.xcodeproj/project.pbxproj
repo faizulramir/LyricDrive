@@ -230,6 +230,8 @@
 /* Begin XCBuildConfiguration section */
 		A10000000000000000000X01 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = A10000000000000000000S04 /* Config */;
+			baseConfigurationReferenceRelativePath = Signing.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -252,6 +254,8 @@
 		};
 		A10000000000000000000X02 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = A10000000000000000000S04 /* Config */;
+			baseConfigurationReferenceRelativePath = Signing.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;

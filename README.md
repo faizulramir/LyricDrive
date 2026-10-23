@@ -71,7 +71,11 @@ iPhone microphone ──► ShazamKit ──► title, artist, position in the s
 ## Getting started
 
 1. **Clone the repo** and open `LyricDrive.xcodeproj`.
-2. **Use your own bundle ID and team.** In the project, select each target and, under **Signing & Capabilities**, set your **Team**. Change the bundle IDs to your own; the extension's ID must start with the app's:
+2. **Use your own team and bundle ID.** Create `Config/Signing.local.xcconfig` containing your team ID (it's git-ignored, so it stays on your Mac):
+   ```
+   DEVELOPMENT_TEAM = ABCDE12345
+   ```
+   Then change the bundle IDs to your own; the extension's ID must start with the app's:
    - App: `com.yourname.LyricDrive`
    - Live Activity extension: `com.yourname.LyricDrive.LiveActivity`
 3. **Turn on ShazamKit for the App ID.** On [developer.apple.com](https://developer.apple.com/account/resources/identifiers/list), go to **Identifiers**, click **+**, choose **App IDs › App**, enter your app's bundle ID as an **Explicit** ID, and tick **ShazamKit** under **App Services**.

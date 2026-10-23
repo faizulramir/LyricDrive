@@ -8,3 +8,6 @@ xcuserdata/
 # Build output
 DerivedData/
 build/
+
+# Local signing team (see Config/Signing.xcconfig)
+Config/Signing.local.xcconfig

@@ -1,0 +1,8 @@
+// Your Apple Developer team ID is kept out of the repo.
+// Put it in Config/Signing.local.xcconfig (ignored by git), like this:
+//
+//   DEVELOPMENT_TEAM = ABCDE12345
+//
+// Find yours on developer.apple.com under Membership details.
+DEVELOPMENT_TEAM =
+#include? "Signing.local.xcconfig"
